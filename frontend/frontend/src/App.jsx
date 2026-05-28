@@ -1,52 +1,31 @@
-import { BrowserRouter, Routes , Route} from "react-router-dom";
+import { BrowserRouter, Routes , Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import Navbar from "./component/Navbar";
+import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Home from "./pages/Home";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+
 import ErrorFound from "./pages/ErrorFound";
-import Navbar from "./component/Navbar";
 
+function App() {
 
-function App() { 
+  return (    
+  <BrowserRouter>
+      <Toaster />
+      <Navbar />
 
-  return (
-<BrowserRouter> 
-<Navbar />
-<Routes>
-
-  <Route path= "/about" element ={<About/>} /> 
-  <Route path= "/contact" element ={<Contact/>} /> 
-  <Route path= "/" element ={<Home/>} /> 
-  <Route path= "*" element ={<ErrorFound/>} /> 
-
-  </Routes> 
-</BrowserRouter>
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<ErrorFound />} />
+      </Routes>
+    </BrowserRouter>
   );
-} 
+}
+
 export default App;
-
-
-
-
-
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route
-//           path="/about"
-//           element={
-//             <>
-//               <About /> <Navbar />
-//             </>
-//           }
-//         />
-//         <Route path="/contact" element={<Contact />} />
-//         <Route path="/" element={<Home />} />
-//         <Route path="*" element={<ErrorFound />} />
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
